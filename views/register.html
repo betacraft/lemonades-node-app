@@ -13,22 +13,14 @@
   <div style="margin-top:50px;" class="container"></div>
   <h2 style="color:#E8277A;margin-top:20px;" class="text-center">Register</h2>
   <hr/>
-  <div style="margin-top:50px;margin-bottom:50px;" class="container">
-    <div class="col-md-4 col-sm-4 col-sm-offset-3 col-md-offset-3">
+  <div style="margin-top:30px;margin-bottom:50px;" class="container">
+    <div class="col-md-4 col-sm-4 col-sm-offset-2 col-md-offset-2">
       <div ng-show="status !== undefined &amp;&amp; status.success !== true">
         <div class="panel-danger text-center">
           <p>{{status.message}}</p>
         </div>
       </div>
       <form id="signUpForm" role="form" name="form" style="margin-top:20px;" novalidate="novalidate">
-        <div ng-class="{'has-error form-group':form.$submitted &amp;&amp; form.name.$error.required || form.name.$error.required === true,'form-group':true}">
-          <label for="name">Name</label>
-          <input id="name" type="text" style="font-size:16px;" name="name" placeholder="Name" ng-model="user.name" required="" class="form-control"/>
-        </div>
-        <div ng-class="{'has-error form-group':form.$submitted &amp;&amp; form.mobile.$error.required === true,'form-group':true}">
-          <label for="mobileNumber">Mobile Number</label>
-          <input id="mobileNumber" type="text" style="font-size:16px;" name="mobile" placeholder="Mobile Number" ng-model="user.mobile" required="" class="form-control"/>
-        </div>
         <div ng-class="{'has-error form-group':form.$submitted &amp;&amp; form.email.$error.required || form.email.$error.email === true,'form-group':true}">
           <label for="email">Email</label>
           <input id="email" type="text" style="font-size:16px;" name="email" placeholder="Email" ng-model="user.email" required="" class="form-control"/>
@@ -47,8 +39,8 @@
         </div>
       </form>
     </div>
-    <div style="margin-top:10px;" class="col-md-3 col-sm-3 text-center"><a id="fblogin" ng-click="loginWithFacebook()" class="text-center">
-        <image src="images/e354d9b6.fb_login.png" style="width:220px;"></image></a><a id="gplogin" ng-click="loginWithGooglePlus()" class="text-center">
+    <div style="margin-top:80px;" class="col-md-3 col-sm-3 text-center"><a id="loginWithFacebook" ng-click="loginWithFacebook()" class="text-center">
+        <image src="images/60ff2fd6.fb_login.png" style="width:190px;"></image></a><a id="loginWithGPlus" ng-click="loginWithGooglePlus()" class="text-center">
         <image src="images/b0eb483c.google_sign_in.png" style="width:195px;"></image></a></div>
   </div>
 </div>
