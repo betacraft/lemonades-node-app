@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" data-dismiss="modal" class="close"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
-        <h4 id="createGroupModal" class="modal-title">Create/Search Group</h4>
+        <h4 id="createGroupModal" class="modal-title">Create / Search Group</h4>
       </div>
       <div class="modal-body">
         <div ng-show="status !== undefined &amp;&amp; status.success === false" style="margin-bottom:10px;">
@@ -30,7 +30,7 @@
         <div class="col-md-2"><a ng-click="landing()"><img src="images/78f5700e.innerPageLogo.png" width="160px;" class="img-responsive text-center"/></a></div>
         <div class="col-md-4 pull-right col-md-offset-6 text-right">
           <div ng-show="sessionKey" ng-click="myGroups()" class="btn btn-primary-border">My Groups</div>
-          <div ng-show="sessionKey" data-toggle="modal" data-target="#createGroupModal" class="btn btn-primary-border">Create/Search Group</div><a ng-hide="sessionKey" ng-click="$root.goToLogin()" class="btn btn-primary-border">Login To Buy</a>
+          <div ng-show="sessionKey" data-toggle="modal" data-target="#createGroupModal" class="btn btn-primary-border">Create / Search Group</div><a ng-hide="sessionKey" ng-click="$root.goToLogin()" class="btn btn-primary-border">Login To Buy</a>
           <div ng-show="sessionKey" ng-click="logout()" class="btn btn-primary-border">Logout</div>
         </div>
       </div>

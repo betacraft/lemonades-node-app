@@ -1,5 +1,5 @@
 
-<div ng-init="init()">
+<div ng-init="init()" class="container-fluid-full">
   <section style="padding-bottom:50px;" class="howItWorksBg">
     <div class="container-fluid">
       <div style="padding-top:15px;" class="row">
@@ -15,7 +15,7 @@
       </div>
     </div>
   </section>
-  <section>
+  <section ng-show="groups.length &gt; 0">
     <div style="padding-top:30px;" class="container">
       <div class="row">
         <div class="col-md-6">
@@ -52,11 +52,11 @@
         </div>
       </div>
     </div>
+    <div style="margin-top:30px;" class="row">
+      <div class="col-md-12 text-center"><a ng-click="dashboard()" class="btn btn-primary-border">More</a></div>
+    </div>
+    <hr/>
   </section>
-  <div style="margin-top:30px;" class="row">
-    <div class="col-md-12 text-center"><a ng-click="dashboard()" class="btn btn-primary-border">More</a></div>
-  </div>
-  <hr/>
   <footer>
     <div style="margin-top:50px" class="container">
       <div class="row">
@@ -82,18 +82,15 @@
         <dov class="col-md-12 text-center copyrightTxt">(C) Lemonades LLC</dov>
       </div>
     </div>
+    <div id="fb-root"></div>
   </footer>
-  <div id="fb-root"></div>
   <script type="text/javascript">
-    var count = 0;
     FB = null;
     (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id) && count === 1) return;
-      count = count + 1;
       js = d.createElement(s);
       js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1614694728745231&version=v2.3";
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1608020712745966&version=v2.3";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     (function (d, s, id) {

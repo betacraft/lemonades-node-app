@@ -1,4 +1,28 @@
 
+<div id="forgotPasswordModal" name="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" data-dismiss="modal" class="close"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
+        <h4 id="createGroupModal" class="modal-title">Forgot Password</h4>
+      </div>
+      <div class="modal-body">
+        <div ng-show="fg_status !== undefined &amp;&amp; fg_status.success === false" style="margin-bottom:10px;">
+          <p class="colorPink">{{fg_status.message}}</p>
+        </div>
+        <form role="form" name="form" novalidate="novalidate">
+          <div class="form-group">
+            <label for="emailAddress">Email Address</label>
+            <input id="emailAddress" type="email" placeholder="me@you.com" ng-model="object.email" name="emailAddress" required="required" class="form-control"/>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="forgotPassword" type="button" data-loading-text="Loading..." ng-disabled="form.emailAddress.$error.required===true" ng-click="forgotPassword()" class="btn btn-primary-border">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container-fluid-full">
   <div style="padding:10px;" class="container-fluid bgGray">
     <div class="row">
@@ -15,7 +39,7 @@
       <h2 style="color:#E8277A" class="text-center">Login</h2>
       <hr/>
     </div>
-    <div class="col-md-3 col-sm-3 col-sm-offset-3 col-md-offset-3">
+    <div class="col-md-4 col-sm-4 col-sm-offset-2 col-md-offset-2">
       <div ng-show="status !== undefined &amp;&amp; status.success !== true" class="panel">
         <div class="panel-body text-center">
           <p>{{status.message}}</p>
@@ -30,14 +54,14 @@
           <label for="password">Password</label>
           <input id="password" type="password" style="font-size:16px;" name="pwd" ng-model="user.password" placeholder="password" required="" class="form-control"/>
         </div>
-        <div style="margin-top:10px;margin-bottom:20px;" class="text-center"><a id="forgotPasswordButton" style="margin-top:10px;" type="submit" ng-click="forgotPassword()" data-loading-text="Logging in..." class="pull-left">Forgot Password</a>
+        <div style="margin-top:10px;margin-bottom:20px;" class="text-center"><a id="forgotPasswordButton" style="margin-top:10px;" type="submit" data-toggle="modal" data-target="#forgotPasswordModal" class="pull-left">Forgot Password</a>
           <button id="loginButton" type="submit" ng-click="login()" data-loading-text="Logging in..." class="btn btn-primary-border pull-right">Login</button>
         </div>
       </form>
     </div>
     <div style="margin-top:10px;" class="col-md-3 col-sm-3 text-center"><a id="login" ng-click="loginWithFacebook()" class="text-center">
-        <image src="images/e354d9b6.fb_login.png" style="width:220px;"></image></a><a id="login" ng-click="loginWithGooglePlus()" class="text-center">
-        <image src="images/b0eb483c.google_sign_in.png" style="width:195px;"></image></a></div>
+        <image src="images/fb_login.png" style="width:220px;"></image></a><a id="login" ng-click="loginWithGooglePlus()" class="text-center">
+        <image src="images/google_sign_in.png" style="width:195px;"></image></a></div>
   </div>
 </div>
 <script type="text/javascript">
