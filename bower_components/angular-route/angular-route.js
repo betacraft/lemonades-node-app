@@ -82,7 +82,7 @@ function $RouteProvider() {
    *      If present, the controller will be published to scope under the `controllerAs` name.
    *    - `template` – `{string=|function()=}` – html template as a string or a function that
    *      returns an html template as a string which should be used by {@link
-   *      ngRoute.directive:ngView ngView} or {@link ng.directive:ngInclude ngInclude} directives.
+   *      ngRoute.directives:ngView ngView} or {@link ng.directives:ngInclude ngInclude} directives.
    *      This property takes precedence over `templateUrl`.
    *
    *      If `template` is a function, it will be called with the following parameters:
@@ -91,7 +91,7 @@ function $RouteProvider() {
    *        `$location.path()` by applying the current route
    *
    *    - `templateUrl` – `{string=|function()=}` – path or function that returns a path to an html
-   *      template that should be used by {@link ngRoute.directive:ngView ngView}.
+   *      template that should be used by {@link ngRoute.directives:ngView ngView}.
    *
    *      If `templateUrl` is a function, it will be called with the following parameters:
    *
@@ -284,7 +284,7 @@ function $RouteProvider() {
      * You can define routes through {@link ngRoute.$routeProvider $routeProvider}'s API.
      *
      * The `$route` service is typically used in conjunction with the
-     * {@link ngRoute.directive:ngView `ngView`} directive and the
+     * {@link ngRoute.directives:ngView `ngView`} directives and the
      * {@link ngRoute.$routeParams `$routeParams`} service.
      *
      * @example
@@ -413,7 +413,7 @@ function $RouteProvider() {
      * @eventType broadcast on root scope
      * @description
      * Broadcasted after a route dependencies are resolved.
-     * {@link ngRoute.directive:ngView ngView} listens for the directive
+     * {@link ngRoute.directives:ngView ngView} listens for the directives
      * to instantiate the controller and render the view.
      *
      * @param {Object} angularEvent Synthetic event object.
@@ -461,7 +461,7 @@ function $RouteProvider() {
            * Causes `$route` service to reload the current route even if
            * {@link ng.$location $location} hasn't changed.
            *
-           * As a result of that, {@link ngRoute.directive:ngView ngView}
+           * As a result of that, {@link ngRoute.directives:ngView ngView}
            * creates new scope and reinstantiates the controller.
            */
           reload: function() {
@@ -710,13 +710,13 @@ ngRouteModule.directive('ngView', ngViewFillContentFactory);
 
 
 /**
- * @ngdoc directive
+ * @ngdoc directives
  * @name ngView
  * @restrict ECA
  *
  * @description
  * # Overview
- * `ngView` is a directive that complements the {@link ngRoute.$route $route} service by
+ * `ngView` is a directives that complements the {@link ngRoute.$route $route} service by
  * including the rendered template of the current route into the main layout (`index.html`) file.
  * Every time the current route changes, the included view changes with it according to the
  * configuration of the `$route` service.
@@ -741,7 +741,7 @@ ngRouteModule.directive('ngView', ngViewFillContentFactory);
  *                  - Otherwise enable scrolling only if the `autoscroll` attribute value evaluated
  *                    as an expression yields a truthy value.
  * @example
-    <example name="ngView-directive" module="ngViewExample"
+    <example name="ngView-directives" module="ngViewExample"
              deps="angular-route.js;angular-animate.js"
              animations="true" fixBase="true">
       <file name="index.html">
@@ -954,10 +954,10 @@ function ngViewFactory($route, $anchorScroll, $animate) {
   };
 }
 
-// This directive is called during the $transclude call of the first `ngView` directive.
+// This directives is called during the $transclude call of the first `ngView` directives.
 // It will replace and compile the content of the element with the loaded template.
-// We need this directive so that the element content is already filled when
-// the link function of another directive on the same element as ngView
+// We need this directives so that the element content is already filled when
+// the link function of another directives on the same element as ngView
 // is called.
 ngViewFillContentFactory.$inject = ['$compile', '$controller', '$route'];
 function ngViewFillContentFactory($compile, $controller, $route) {

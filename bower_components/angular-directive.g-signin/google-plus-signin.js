@@ -1,7 +1,7 @@
 'use strict';
 
 /*
- * angular-google-plus-directive v0.0.1
+ * angular-google-plus-directives v0.0.1
  * ♡ CopyHeart 2013 by Jerad Bitner http://jeradbitner.com
  * Copying is an act of love. Please copy.
  */
@@ -20,7 +20,7 @@ angular.module('directive.g+signin', []).
 
         attrs.$set('data-clientid', attrs.clientid);
 
-        // Some default values, based on prior versions of this directive
+        // Some default values, based on prior versions of this directives
         var defaults = {
           callback: 'signinCallback',
           cookiepolicy: 'single_host_origin',
@@ -45,7 +45,7 @@ angular.module('directive.g+signin', []).
             lang: value ? value : 'en'
           };
         });
-        
+
         // Asynchronously load the G+ SDK.
         var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
         po.src = 'https://apis.google.com/js/client:plusone.js';
@@ -69,5 +69,5 @@ angular.module('directive.g+signin', []).
       } else {
         $rootScope.$broadcast('event:google-plus-signin-failure', authResult);
       }
-    }; 
+    };
 }]);

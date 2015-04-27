@@ -27,20 +27,20 @@
  *
  * | Directive                                                                                                | Supported Animations                                                     |
  * |----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
- * | {@link ng.directive:ngRepeat#animations ngRepeat}                                                        | enter, leave and move                                                    |
- * | {@link ngRoute.directive:ngView#animations ngView}                                                       | enter and leave                                                          |
- * | {@link ng.directive:ngInclude#animations ngInclude}                                                      | enter and leave                                                          |
- * | {@link ng.directive:ngSwitch#animations ngSwitch}                                                        | enter and leave                                                          |
- * | {@link ng.directive:ngIf#animations ngIf}                                                                | enter and leave                                                          |
- * | {@link ng.directive:ngClass#animations ngClass}                                                          | add and remove (the CSS class(es) present)                               |
- * | {@link ng.directive:ngShow#animations ngShow} & {@link ng.directive:ngHide#animations ngHide}            | add and remove (the ng-hide class value)                                 |
- * | {@link ng.directive:form#animation-hooks form} & {@link ng.directive:ngModel#animation-hooks ngModel}    | add and remove (dirty, pristine, valid, invalid & all other validations) |
+ * | {@link ng.directives:ngRepeat#animations ngRepeat}                                                        | enter, leave and move                                                    |
+ * | {@link ngRoute.directives:ngView#animations ngView}                                                       | enter and leave                                                          |
+ * | {@link ng.directives:ngInclude#animations ngInclude}                                                      | enter and leave                                                          |
+ * | {@link ng.directives:ngSwitch#animations ngSwitch}                                                        | enter and leave                                                          |
+ * | {@link ng.directives:ngIf#animations ngIf}                                                                | enter and leave                                                          |
+ * | {@link ng.directives:ngClass#animations ngClass}                                                          | add and remove (the CSS class(es) present)                               |
+ * | {@link ng.directives:ngShow#animations ngShow} & {@link ng.directives:ngHide#animations ngHide}            | add and remove (the ng-hide class value)                                 |
+ * | {@link ng.directives:form#animation-hooks form} & {@link ng.directives:ngModel#animation-hooks ngModel}    | add and remove (dirty, pristine, valid, invalid & all other validations) |
  * | {@link module:ngMessages#animations ngMessages}                                                          | add and remove (ng-active & ng-inactive)                                 |
  * | {@link module:ngMessages#animations ngMessage}                                                           | enter and leave                                                          |
  *
- * You can find out more information about animations upon visiting each directive page.
+ * You can find out more information about animations upon visiting each directives page.
  *
- * Below is an example of how to apply animations to a directive that supports animation hooks:
+ * Below is an example of how to apply animations to a directives that supports animation hooks:
  *
  * ```html
  * <style type="text/css">
@@ -352,7 +352,7 @@
  *
  *
  * ### Applying Directive-specific Styles to an Animation
- * In some cases a directive or service may want to provide `$animate` with extra details that the animation will
+ * In some cases a directives or service may want to provide `$animate` with extra details that the animation will
  * include into its animation. Let's say for example we wanted to render an animation that animates an element
  * towards the mouse coordinates as to where the user clicked last. By collecting the X/Y coordinates of the click
  * (via the event parameter) we can set the `top` and `left` styles into an object and pass that into our function
@@ -487,7 +487,7 @@ angular.module('ngAnimate', ['ng'])
       $$jqLite = $$$jqLite;
       $rootElement.data(NG_ANIMATE_STATE, rootAnimateState);
 
-      // Wait until all directive and route-related templates are downloaded and
+      // Wait until all directives and route-related templates are downloaded and
       // compiled. The $templateRequest.totalPendingRequests variable keeps track of
       // all of the remote templates being currently downloaded. If there are no
       // templates currently downloading then the watcher will still fire anyway.

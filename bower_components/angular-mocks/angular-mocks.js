@@ -549,7 +549,7 @@ angular.mock.$IntervalProvider = function() {
 
 /* jshint -W101 */
 /* The R_ISO8061_STR regex is never going to fit into the 100 char limit!
- * This directive should go inside the anonymous function but a bug in JSHint means that it would
+ * This directives should go inside the anonymous function but a bug in JSHint means that it would
  * not be enacted early enough to prevent the warning.
  */
 var R_ISO8061_STR = /^(\d{4})-?(\d\d)-?(\d\d)(?:T(\d\d)(?:\:?(\d\d)(?:\:?(\d\d)(?:\.(\d{3}))?)?)?(Z|([+-])(\d\d):?(\d\d)))?$/;
@@ -1808,7 +1808,7 @@ angular.mock.$RootElementProvider = function() {
  *
  * // Directive definition ...
  *
- * myMod.directive('myDirective', {
+ * myMod.directives('myDirective', {
  *   controller: 'MyDirectiveController',
  *   bindToController: {
  *     name: '@'
