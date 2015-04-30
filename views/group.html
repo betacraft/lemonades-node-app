@@ -1,12 +1,11 @@
-
 <section ng-init="init()">
   <div style="padding:10px;" class="container-fluid bgGray">
     <div class="row">
       <div class="col-md-12 col-sm-12">
         <div class="col-md-2 col-sm-2"><a ng-click="dashboard()"><img src="images/78f5700e.innerPageLogo.png" width="160px;" class="img-responsive text-center"/></a></div>
-        <div class="col-md-4 pull-right text-right col-sm-2 col-md-offset-6">
-          <div ng-click="dashboard()" class="btn btn-primary-border">How it Works ?</div>
+        <div class="col-md-4 pull-right text-right col-sm-2 col-md-offset-6"><a href="http://www.youtube.com/embed/_F6rBAHOrDs?autplay=1" class="btn btn-primary-border youtube">How It Works ?</a>
           <div ng-click="dashboard()" class="btn btn-primary-border">More Groups</div>
+          <div ng-hide="sessionKey" ng-click="$root.goToLogin()" class="btn btn-primary-border">Login To Buy</div>
           <div ng-show="sessionKey" ng-click="logout()" class="btn btn-primary-border">Logout</div>
         </div>
       </div>
@@ -17,7 +16,7 @@
   <div class="row">
     <div style="margin-top:25px;" class="col-lg-4">
       <div style="height:450px;" class="sideImagewrapp">
-        <div ng-show="sessionKey &amp;&amp; group !== undefined &amp;&amp; group.is_joined" style="z-index:1000;" class="bigPink100pBtn">You are part of this group</div><a ng-hide="sessionKey" style="z-index:1000;" ng-click="login()" class="bigPink100pBtn">Login to Join</a><a ng-show="sessionKey &amp;&amp; group !== undefined &amp;&amp; !group.is_joined" style="z-index:1000;" ng-click="joinGroup()" class="bigPink100pBtn">I am interested</a>
+        <div ng-show="sessionKey &amp;&amp; group !== undefined &amp;&amp; group.is_joined" class="bigPink100pBtn">You are part of this group</div><a ng-hide="sessionKey" ng-click="login()" class="bigPink100pBtn">Login to Join</a><a ng-show="sessionKey &amp;&amp; group !== undefined &amp;&amp; !group.is_joined" ng-click="joinGroup()" class="bigPink100pBtn">I am interested</a>
         <div style="width:100%;"><img src="{{group.product.product_image}}" style="max-height:300px;max-width:300px;" class="image-center"/></div>
       </div>
     </div>
@@ -39,12 +38,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div style="margin-top:10px;" class="col-md-12">
-          <p style="font-size:20px;" class="colorPink">Share the group to get huge discount on market price.</p>
-        </div>
-      </div>
-      <div class="row">
+      <div style="margin-top:10px;" class="row">
         <div style="margin-left:-20px;margin-top:10px;" class="col-md-12 text-center">
           <div class="col-md-2 col-sm-12 text-center">
             <div data-href="http://www.lemonades.in/#/group/{{groupId}}?utm_source=fb_share_landing_page&amp;utm_medium=website&amp;utm_campaign=share" data-layout="button_count" class="fb-share-button"></div>
@@ -78,14 +72,29 @@
           <p style="font-size:15px;">We will required minimum <span style="color:#ff227c;">{{group.required_user_count}} people </span>interested in this product to get you an attractive deal.</p>
         </div>
       </div>
-      <div style="margin-top:5px;" class="row">
-        <div class="col-md-12">
-          <hr/>
-          <h2>Discussions</h2>
+      <hr/>
+      <div style="margin-left:1px;margin-top:15px;" role="tabpanel" class="row">
+        <ul role="tablist" class="nav nav-tabs">
+          <li role="presentation" class="active"><a showtab="" href="#updates" aria-controls="updates" role="tab" data-toggle="tab" style="font-size:17px;">Updates</a></li>
+          <li role="presentation"><a showtab="" href="#discussions" aria-controls="discussions" role="tab" data-toggle="tab" style="font-size:17px;">Discussions</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="updates" role="tabpanel" class="tab-pane active">
+            <div ng-hide="group.updates">
+              <div class="row">
+                <div class="col-md-10">
+                  <div class="bs-callout-l bs-callout-update">
+                    <p>We have been notified about this group and We are talking to the vendors to get a list of deals they can offer, once we have {{group.required_user_count}} people interested in this product.</p>
+                    <p style="font-size:12px" class="pull-right">{{group.created_at | date:'dd-MMM-yyyy HH:mm a'}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="discussions" role="tabpanel" style="overflow-x:hidden;" class="tab-pane">
+            <div data-href="http://www.lemonades.in/#/group/{{groupId}}?utm_source=fb_comments&amp;utm_medium=website&amp;utm_campaign=comments" data-numposts="5" data-colorscheme="light" style="width:100%;" class="fb-comments"></div>
+          </div>
         </div>
-      </div>
-      <div style="margin-left:1px;" class="row">
-        <div data-href="http://www.lemonades.in/#/group/{{groupId}}?utm_source=fb_comments&amp;utm_medium=website&amp;utm_campaign=comments" data-numposts="5" data-colorscheme="light" style="width:100%;" class="fb-comments"></div>
       </div>
     </div>
   </div>

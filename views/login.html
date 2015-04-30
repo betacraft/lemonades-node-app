@@ -37,9 +37,8 @@
   <div style="margin-top:50px;" class="container">
     <div class="col-md-12 text-center">
       <h2 style="color:#E8277A" class="text-center">Login</h2>
-      <hr/>
     </div>
-    <div class="col-md-4 col-sm-4 col-sm-offset-2 col-md-offset-2">
+    <div class="col-md-4 col-sm-4 col-sm-offset-4 col-md-offset-4">
       <div ng-show="status !== undefined &amp;&amp; status.success !== true" class="panel">
         <div class="panel-body text-center">
           <p>{{status.message}}</p>
@@ -59,8 +58,10 @@
         </div>
       </form>
     </div>
-    <div style="margin-top:60px;" class="col-md-3 col-sm-3 text-center"><a id="loginWithFacebook" ng-click="loginWithFacebook()" class="text-center">
-        <image src="images/60ff2fd6.fb_login.png" style="width:190px;"></image></a><a id="loginWithGPlus" ng-click="loginWithGooglePlus()" class="text-center">
-        <image src="images/b0eb483c.google_sign_in.png" style="width:195px;"></image></a></div>
+    <!--div.col-md-3.col-sm-3.text-center(style="margin-top:60px;")-->
+    <!--  a#loginWithFacebook.text-center(ng-click="loginWithFacebook()")-->
+    <!--    image(src="images/fb_login.png",style="width:190px;")-->
+    <!--  a#loginWithGPlus.text-center(ng-click="loginWithGooglePlus()")-->
+    <!--    image(src="images/google_sign_in.png",style="width:195px;")-->
   </div>
 </div>
