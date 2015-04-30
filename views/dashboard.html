@@ -1,5 +1,5 @@
 
-<div id="createGroupModal" name="createGroupModal" tabindex="-2" role="dialog" aria-labelledby="createGroupModalLabel" aria-hidden="true" class="modal">
+<div id="createGroupModal" name="createGroupModal" tabindex="-2" role="dialog" aria-labelledby="createGroupModalLabel" aria-hidden="true" style="z-index:10000;" class="modal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -15,7 +15,7 @@
             <label for="productLink">Flipkart/Amazon.in Product Link</label>
             <input id="productLink" type="uri" placeholder="Flipkart/Amazon.in Product Link" ng-model="object.product_link" name="productLink" required="required" class="form-control"/>
           </div>
-        </form>
+        </form><a ng-show="status !== undefined &amp;&amp; status.success === false" style="margin-bottom:10px;" href="mailto:akshay@rainingclouds.com?subject=Unable to parse&amp;body=I want to create a group for : {{object.product_link}}" class="btn btn-primary-border">Mail Us this link, we will try to fix this</a>
       </div>
       <div class="modal-footer">
         <button id="createGroup" type="button" data-loading-text="Fetching Info" ng-disabled="form.productLink.$error.required===true" ng-click="createGroup()" class="btn btn-primary-border">Go</button>
