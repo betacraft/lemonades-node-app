@@ -12,7 +12,7 @@ var options = {
     verbose: false,
     // Prepends the string to the pretty generated hash
     // ex. if '!' is defined ->  #!/home/page
-    hashPrepend: ''
+    hashPrepend: '!'
 };
 
 app.use(express.static(__dirname + '/'));
