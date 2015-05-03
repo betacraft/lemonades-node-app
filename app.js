@@ -21,7 +21,7 @@ app.use(express.query());
 app.use(phantomExpress(options));
 
 app.get('/', function (req, res) {
-    console.log("got request", req);
+    console.log("got request");
     res.sendFile(__dirname + '/index.html')
 });
 
