@@ -13,10 +13,7 @@ var options = {
     hashPrepend: '!'
 };
 
-app.use('/styles', express.static(__dirname + '/styles'));
-app.use('/scripts', express.static(__dirname + '/scripts'));
 app.use('/views', express.static(__dirname + '/views'));
-app.use('/images', express.static(__dirname + '/images'));
 app.use(express.query());
 app.use(phantomExpress(options));
 
