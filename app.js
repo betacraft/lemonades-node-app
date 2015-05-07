@@ -1,5 +1,6 @@
 var express = require('express');
 var request = require('sync-request');
+var url = require('url');
 var app = express();
 var options = {
     // Currently the middleware caches the response from the
@@ -32,11 +33,15 @@ app.get('/', function (req, res) {
 });
 
 app.get('/group/:id/share',function(req,res){
-    console.log("got share for id",req.params.id);
-    console.log("making request");
-    var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1/group/'+req.params.id+'/share');
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(response.getBody());
+    console.log("handing it");
+    console.log(req.url);
+    var url_parts = url.parse(req.url, true);
+    console.log(url_parts.query);
+    var path = "http://www.lemonades.in/#!/group/"+req.params.id;
+    if (req.url.split('?').length>1){
+        path += "?" +req.url.split('?')[1];
+    }
+    res.writeHead(302, {'Location': path});
     res.end();
 });
 
