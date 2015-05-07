@@ -22,6 +22,9 @@ app.get('/', function (req, res) {
     if (typeof(req.query._escaped_fragment_) !== "undefined") {
         console.log("rendering at the server end");
         var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1/'+req.query._escaped_fragment_);
+        res.set({
+            'Content-Type': 'text/html',
+        });
         res.send(response.getBody());
 
     }else
