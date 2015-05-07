@@ -22,10 +22,9 @@ app.get('/', function (req, res) {
     if (typeof(req.query._escaped_fragment_) !== "undefined") {
         console.log("rendering at the server end");
         var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1/'+req.query._escaped_fragment_);
-        res.set({
-            'Content-Type': 'text/html'
-        });
-        res.send(response.getBody());
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.write(response.getBody());
+        res.end();
 
     }else
         res.sendFile(__dirname + '/index.html')
@@ -36,7 +35,9 @@ app.get('/group/:id/share',function(req,res){
     console.log("got share for id",req.params.id);
     console.log("making request");
     var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1/group/'+req.params.id+'/share');
-    res.send(response.getBody());
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(response.getBody());
+    res.end();
 });
 
 
