@@ -9,8 +9,6 @@
     "debug": "~2.1.1",
     "express": "~4.12.2",
     "nodemon": "*",
-    "phantom-express": "*",
-    "phantomjs": "*",
     "serve-favicon": "~2.2.0",
     "sync-request": "^2.0.1"
   }

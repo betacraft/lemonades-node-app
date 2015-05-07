@@ -1,5 +1,4 @@
 var express = require('express');
-var phantomExpress = require("phantom-express");
 var request = require('sync-request');
 var app = express();
 var options = {
