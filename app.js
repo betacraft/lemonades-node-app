@@ -16,21 +16,19 @@ var options = {
 
 app.use('/views', express.static(__dirname + '/views'));
 app.use(express.query());
-app.use(phantomExpress(options));
+//app.use(phantomExpress(options));
 
 app.get('/', function (req, res) {
-    console.log("got request");
-    res.sendFile(__dirname + '/index.html')
+    console.log("got request", req.query._escaped_fragment_);
+    if (typeof(req.query._escaped_fragment_) !== "undefined") {
+        console.log("rendering at the server end");
+        var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1/'+req.query._escaped_fragment_);
+        res.send(response.getBody());
+
+    }else
+        res.sendFile(__dirname + '/index.html')
+
 });
-
-app.get('/group/:id/share',function(req,res){
-    console.log("got share for id",req.params.id);
-    console.log("making request");
-    var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1/group/'+req.params.id+'/share');
-    res.send(response.getBody());
-});
-
-
 
 var port = process.env.PORT || 9000;
 var server = app.listen(port, function () {
