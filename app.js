@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
 app.get('/group/:id/share',function(req,res){
     console.log("got share for id",req.params.id);
     console.log("making request");
-    var response = request('GET', 'http://localhost:3000/api/v1/group/'+req.params.id+'/share');
+    var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1/group/'+req.params.id+'/share');
     res.send(response.getBody());
 });
 
