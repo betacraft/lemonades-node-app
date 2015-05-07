@@ -1,5 +1,6 @@
 var express = require('express');
 var phantomExpress = require("phantom-express");
+var request = require('sync-request');
 var app = express();
 var options = {
     // Currently the middleware caches the response from the
@@ -21,6 +22,15 @@ app.get('/', function (req, res) {
     console.log("got request");
     res.sendFile(__dirname + '/index.html')
 });
+
+app.get('/group/:id/share',function(req,res){
+    console.log("got share for id",req.params.id);
+    console.log("making request");
+    var response = request('GET', 'http://localhost:3000/api/v1/group/'+req.params.id+'/share');
+    res.send(response.getBody());
+});
+
+
 
 var port = process.env.PORT || 9000;
 var server = app.listen(port, function () {
