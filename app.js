@@ -33,7 +33,15 @@ app.get('/', function (req, res) {
 });
 
 app.get('/group/:id/share',function(req,res){
-    console.log("handing it");
+    if (typeof(req.query._escaped_fragment_) !== "undefined") {
+        console.log("rendering at the server end");
+        var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1/'+req.query._escaped_fragment_);
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.write(response.getBody());
+        res.end();
+        return
+    }
+    console.log("handling it");
     console.log(req.url);
     var url_parts = url.parse(req.url, true);
     console.log(url_parts.query);
