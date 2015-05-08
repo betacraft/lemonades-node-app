@@ -21,6 +21,7 @@ app.use(express.query());
 app.get('/', function (req, res) {
     console.log("got request", req.query._escaped_fragment_);
     if (typeof(req.query._escaped_fragment_) !== "undefined") {
+
         console.log("rendering at the server end");
         var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1'+req.query._escaped_fragment_.split("?")[0] + '/share');
         res.writeHead(200, {'Content-Type': 'text/html'});
@@ -42,6 +43,14 @@ app.get('/group/:id/share',function(req,res){
         path += "?" +req.url.split('?')[1];
     }
     res.writeHead(302, {'Location': path});
+    res.end();
+});
+
+
+app.get('/group/:id/share/gplus',function(req,res){
+    var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1'+req.id + '/share');
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(response.getBody());
     res.end();
 });
 
