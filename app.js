@@ -48,7 +48,7 @@ app.get('/group/:id/share',function(req,res){
 
 
 app.get('/group/:id/share/gplus',function(req,res){
-    var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1'+req.id + '/share');
+    var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1/'+req.params.id + '/share');
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(response.getBody());
     res.end();
