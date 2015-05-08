@@ -47,6 +47,10 @@ app.get('/group/:id/share',function(req,res){
 
 
 app.get('/group/:id/share/gplus',function(req,res){
+    if (typeof(req.query._escaped_fragment_) !== "undefined"){
+        console.log("git gplus escape fragment query");
+    }
+
     var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1/group/'+req.params.id + '/share');
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(response.getBody());
