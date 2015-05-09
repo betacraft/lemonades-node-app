@@ -18,6 +18,8 @@ app.use('/views', express.static(__dirname + '/views'));
 app.use(express.query());
 //app.use(phantomExpress(options));
 
+
+
 app.get('/', function (req, res) {
     console.log("got request", req.query._escaped_fragment_);
     if (typeof(req.query._escaped_fragment_) !== "undefined" && req.query._escaped_fragment_.indexOf('group')>-1) {
@@ -27,9 +29,9 @@ app.get('/', function (req, res) {
         res.write(response.getBody());
         res.end();
 
-    }else
+    }else {
         res.sendFile(__dirname + '/index.html')
-
+    }
 });
 
 app.get('/group/:id/share',function(req,res){
@@ -50,7 +52,6 @@ app.get('/group/:id/share/gplus',function(req,res){
     if (typeof(req.query._escaped_fragment_) !== "undefined"){
         console.log("git gplus escape fragment query");
     }
-
     var response = request('GET', 'http://lemonades.elasticbeanstalk.com/api/v1/group/'+req.params.id + '/share');
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(response.getBody());
