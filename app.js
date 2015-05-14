@@ -39,7 +39,7 @@ app.get('/group/:id/share',function(req,res){
     console.log(req.url);
     var url_parts = url.parse(req.url, true);
     console.log(url_parts.query);
-    var path = "http://www.lemonades.in/#!/group/"+req.params.id;
+    var path = "http://www.groupup.in/#!/group/"+req.params.id;
     if (req.url.split('?').length>1){
         path += "?" +req.url.split('?')[1];
     }
@@ -63,5 +63,5 @@ var port = process.env.PORT || 9000;
 var server = app.listen(port, function () {
     var host = server.address().address;
     var port = server.address().port;
-    console.log('Lemonades web-ui listening at http://%s:%s', host, port);
+    console.log('GroupUP web-ui listening at http://%s:%s', host, port);
 });
