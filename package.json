@@ -8,6 +8,7 @@
   "dependencies": {
     "debug": "~2.1.1",
     "express": "~4.12.2",
+    "newrelic": "^1.19.1",
     "nodemon": "*",
     "serve-favicon": "~2.2.0",
     "sync-request": "^2.0.1"
