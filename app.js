@@ -1,7 +1,7 @@
+require('newrelic');
 var express = require('express');
 var request = require('sync-request');
 var url = require('url');
-var newrelic = require('newrelic');
 var app = express();
 var options = {
     // Currently the middleware caches the response from the
